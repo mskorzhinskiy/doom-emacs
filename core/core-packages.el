@@ -260,7 +260,7 @@ processed."
   "Resolve and return PACKAGE's (symbol) local-repo property."
   (if-let* ((recipe (copy-sequence (doom-package-recipe package)))
             (recipe (if (and (not (plist-member recipe :type))
-                             (memq (plist-get recipe :host) '(github gitlab bitbucket)))
+                             (memq (plist-get recipe :host) '(github)))
                         (plist-put recipe :type 'git)
                       recipe))
             (repo (if-let (local-repo (plist-get recipe :local-repo))
